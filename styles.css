@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+@import url("styles/header.css");
+@import url("styles/banner.css");
+@import url("styles/carrossel.css");
+@import url("styles/topicos.css");
+@import url("styles/contato.css");
+@import url("styles/rodape.css");
+
+/* Entendendo os positions que aparecem no código:
+
+   O position relative libera a opção de se utilizar
+   outros atributos, como left, right, top ou bottom, 
+   enquanto que o position absolute permite movimentar 
+   o elemento de acordo de outro que veio antes, que 
+   teve o seu position diferente de static, que é o 
+   que se tem por padrão. 
+   
+   Desse modo, como pretendo fazer com que o menu
+   esteja abaixo do topbar, precisei mudar a condição 
+   de position do elemento pai para relative, permitindo-me
+   manipular o menu para baixo dele, através do absolute. */
+
+
+/* Resetando todas as configurações 
+   de margem e espaçamento que são
+   trazidas por padrão pelo navegador. */
+
+* {
+   margin: 0;
+   padding: 0;
+}
+
+.poppins-regular {
+   font-family: "Poppins", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+ }
+
+ .josefin-sans {
+   font-family: "Josefin Sans", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 400;
+   font-style: normal;
+ }
+ 
+:root {
+   --cor-topbar: #000000;
+   --cor-pagina: #121216;
+   --cor-card: #121216;
+   --cor-de-fundo-carrossel: #31313C;
+   --cor-degrade:  linear-gradient(to right, #00121F, #002B4A, #005593);;
+   --cor-azul-petronas: #05DBF2;
+   --cor-links: #025373;
+   --cor-cinza: #C4C4C4;
+   --cor-texto-rodape: #CEEFF2;
+   --cor-texto-menu: #00121F;
+   --cor-branco: #FFFFFF;
+
+}
+
+body {
+   background-color: var(--cor-pagina);
+   font-family: "Poppins", sans-serif;
+   font-size: 16px;
+   font-weight: 400;
+}
+

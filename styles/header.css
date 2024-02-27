@@ -1,0 +1,250 @@
+.cabecalho {
+    background-color: var(--cor-topbar);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* Adicionando um "dropshadow" do topbar
+       para a página da aplicação. 
+       
+       No exemplo acima, 0 é o deslocamento horizontal, 
+       2px é o deslocamento vertical, 4px é o raio de 
+       desfoque e rgba(0, 0, 0, 0.1) é a cor da sombra 
+       (preto com uma opacidade de 0.1). 
+    */
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+
+    position: relative;
+}
+
+.container__botao:checked~.container__rotulo>.cabecalho__menu-hamburguer {
+    background-image: url(../Assets/menu_selected.png);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container__imagem {
+    padding: 1em;
+}
+
+.cabecalho__menu-hamburguer {
+    width: 36px;
+    height: 24px;
+    background-image: url("../Assets/menu_topbar.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+
+/* Retirando o menu do topbar por padrão, 
+   fazendo o retornar apenas quando é clicado
+   com base no condicional criado .*/
+
+.lista-menu {
+    display: none;
+    position: absolute;
+    top: 82%;
+    width: 60vw;
+}
+
+.alurabooks__logo {
+    margin-left: 0.5em;
+}
+
+.lista-menu__titulo {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    color: var(--cor-azul-petronas);
+    padding: 1em;
+    background-color: var(--cor-de-fundo-carrossel);
+}
+
+.lista-menu__item {
+    background-color: var(--cor-de-fundo-carrossel);
+    padding: 1em;
+}
+
+.lista-menu__link {
+    /* Transformando o texto em maíusculo*/
+    text-transform: uppercase;
+
+    text-decoration: none;
+    color: var(--cor-branco);
+}
+
+/* Retornando o menu ao clicar no botão,
+   mas como ele funciona? 
+   
+   Bom, quando faço essa combinação com 
+   a subclass "checked" crio um tipo de 
+   condicional que ao ser clicado mostra
+   o menu e ao ser clicado novamente o
+   esconde, sendo que por padrão o menu
+   não é mostrado. */
+
+.container__botao:checked~.lista-menu {
+    display: block;
+}
+
+.container__botao {
+    display: none;
+}
+
+/* Criando uma media query que será responsável 
+   por tornar a plataforma responsiva, alterando 
+   o estilo dos elementos conforme a resolução, 
+   no caso a largura, passada.  */
+
+.opcoes {
+    display: none;
+}
+
+.container__texto {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .container {
+        margin-left: 1em;
+        align-items: center;
+    }
+
+    .container__titulo,
+    .container__titulo--negrito {
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 30px;
+        margin-top: 0.2em;
+    }
+
+    .container__titulo--negrito {
+        font-weight: 700;
+        color: var(--cor-branco);
+    }
+
+    .container__titulo {
+        font-weight: 400;
+        color: var(--cor-branco);
+        margin-left: 0.5em;
+    }
+
+    .opcoes {
+        display: flex;
+    }
+
+    .opcoes__botao {
+        display: none;
+    }
+
+    .opcoes__items {
+        color: var(--cor-branco);
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+
+    .opcoes__link {
+        text-decoration: none;
+        color: var(--cor-branco);
+    }
+
+    /* Escondendo o botão de favoritos, o coração, 
+       quando a resolução fornecida é a especificada 
+       pela query. */
+
+    .container__imagem-transparente {
+        display: none;
+    }
+
+    /* Escondendo o menu de favoritos, o coração, 
+       quando a resolução fornecida é a especificada 
+       pela query. */
+
+    .cabecalho__menu-hamburguer {
+        display: none;
+    }
+
+    .opcao__botao {
+        display: none;
+    }
+
+    .opcoes__botao:checked~.lista-menu {
+        display: block;
+        width: auto;
+    }
+
+    .opcoes__botao:checked~.opcoes__rotulo>.opcoes__items {
+        background: var(--cor-degrade);
+        color: var(--cor-branco);
+    }
+
+    .lista-menu__item:hover {
+        background: var(--cor-degrade);
+    }
+
+    .opcoes__items {
+        padding: 2em 1em;
+    }
+
+    .lista-menu__item:hover {
+        background: var(--cor-degrade);
+    }
+
+    .opcoes__link:hover {
+        color: var(--cor-azul-petronas);
+    }
+
+}
+
+@media screen and (min-width: 1728px) {
+
+    .container__texto {
+        display: block;
+    }
+
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--cor-branco);
+        font-size: 20px;
+        margin-right: 0.3em;
+    }
+
+    .cabecalho {
+        padding: 0 2em;
+    }
+
+    /*Quando estou utilizando um flex container e passo 
+      esse parâmetro preencho todo aquele espaço, 
+      retirando os possíveis textos que lá poderiam 
+      estar ocupando, que em termos práticos significa 
+      dizer que, aqui, eles foram à direita.  */
+    .opcoes {
+        margin-right: auto;
+    }
+
+    .opcoes__botao {
+        display: none;
+    }
+
+    .opcoes__botao:checked~.opcoes__rotulo>.opcoes__items {
+        background: var(--cor-degrade);
+        color: var(--cor-branco);
+    }
+
+    .opcoes__items {
+        padding: 2em 1em;
+    }
+
+    .lista-menu__item a:hover {
+        background: var(--cor-degrade);
+    }
+
+    .opcoes__link a:hover {
+        color: var(--cor-azul-petronas);
+    }
+
+}
